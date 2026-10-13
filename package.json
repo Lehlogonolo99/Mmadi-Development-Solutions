@@ -1,0 +1,13 @@
+{
+  "name": "mmadi-development-solutions",
+  "private": true,
+  "description": "Website, staff portal and microservices for Mmadi Development Solutions (Pty) Ltd",
+  "type": "module",
+  "scripts": {
+    "test": "node scripts/sync-shared.mjs --check && node --test tests/*.test.mjs",
+    "sync": "node scripts/sync-shared.mjs",
+    "dev": "firebase emulators:start",
+    "deploy": "node scripts/sync-shared.mjs --check && firebase deploy"
+  },
+  "engines": { "node": ">=22" }
+}

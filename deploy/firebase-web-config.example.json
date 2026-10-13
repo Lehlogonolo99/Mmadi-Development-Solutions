@@ -1,0 +1,6 @@
+{
+  "apiKey": "paste from Firebase console > Project settings > Your apps > Web app",
+  "authDomain": "mmadi-development-solutions.firebaseapp.com",
+  "projectId": "mmadi-development-solutions",
+  "appId": "paste from the same place"
+}

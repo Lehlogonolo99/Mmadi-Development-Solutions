@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phone, laptop and software repairs | Mmadi Development Solutions</title>
+  <meta name="description" content="Phone and laptop repairs, software installs and updates, and phone unlocking with proof of ownership in Jane Furse. Book online and track your repair.">
+  <meta name="theme-color" content="#0F1B2D">
+  <link rel="canonical" href="https://mmadi-development-solutions.web.app/repairs/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mmadi Development Solutions">
+  <meta property="og:title" content="Phone, laptop and software repairs | Mmadi Development Solutions">
+  <meta property="og:description" content="Phone and laptop repairs, software installs and updates, and phone unlocking with proof of ownership in Jane Furse. Book online and track your repair.">
+  <link rel="icon" href="/assets/img/logo-tile.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <div class="wrap top__inner">
+      <a class="brand" href="/" aria-label="Mmadi Development Solutions, home">
+        <img src="/assets/img/logo-tile.svg" alt="" width="40" height="40">
+        <span class="brand__text">
+          <span class="brand__name">Mmadi</span>
+          <span class="brand__tag">Development Solutions</span>
+        </span>
+      </a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="nav" aria-label="Main">
+        <a href="/repairs/" aria-current="page">Repairs</a>
+        <a href="/cafe/">Internet café</a>
+        <a href="/learnerships/">Learnerships</a>
+        <a href="/contact/">Contact</a>
+        <a class="nav__staff" href="/portal/">Staff sign in</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="wrap">
+        <h1>Repairs and software</h1>
+        <p class="lede">Phones, laptops and PCs repaired, software installed and updated, and locked devices opened for their owners. Book online and follow the repair with your job number.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#book">Book a repair</a>
+          <a class="btn btn--ghost" href="#track">Track a repair</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section__title">What we fix</h2>
+        <div class="services">
+          <article class="service">
+            <h3>Phone repairs</h3>
+            <p>Screens, batteries, charging ports, speakers, microphones and cameras, for Android phones and iPhones.</p>
+          </article>
+          <article class="service">
+            <h3>Laptop and PC repairs</h3>
+            <p>Slow machines, broken screens and keyboards, failed hard drives, overheating, and upgrades to SSD and more memory.</p>
+          </article>
+          <article class="service">
+            <h3>Software installs and updates</h3>
+            <p>Windows and Office setup, updates, antivirus, drivers, data backup, and moving your files to a new device.</p>
+          </article>
+          <article class="service">
+            <h3>Data recovery</h3>
+            <p>Getting photos and documents off a phone or laptop that won’t start, where the storage can still be read.</p>
+          </article>
+          <article class="service service--note" id="unlocking">
+            <h3>Unlocking phones and accounts</h3>
+            <p>Forgot your PIN or pattern, or bought a phone still linked to the previous owner’s Google or Apple account? We help you get back in.</p>
+            <p class="service__rule"><strong>We only unlock devices with proof of ownership.</strong> Bring your ID and a receipt, contract, or a signed letter from the previous owner. We don’t unlock devices that are reported lost or stolen.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tint">
+      <div class="wrap">
+        <h2 class="section__title">Prices</h2>
+        <p class="muted section__intro">These are starting prices. You get an exact quote after we’ve looked at the device, and nothing is repaired until you approve it.</p>
+        <div id="catalogue" class="price-list" aria-live="polite"><p class="muted">Loading prices…</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section__title">How a repair works</h2>
+        <ol class="path">
+          <li><h3>Book</h3><p>Book below or walk in. You get a job number like J-0012.</p></li>
+          <li><h3>Diagnose</h3><p>We find the fault and send you a quote.</p></li>
+          <li><h3>Repair</h3><p>Once you approve, we fix it and test it.</p></li>
+          <li><h3>Collect</h3><p>We tell you it’s ready. Pay and collect.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--tint">
+      <div class="wrap forms">
+        <div class="form-card" id="book">
+          <h2>Book a repair</h2>
+          <p>Tell us what’s wrong. We’ll confirm when to bring it in.</p>
+          <form id="booking-form" class="form" novalidate>
+            <div class="field">
+              <label for="b-name">Your name</label>
+              <input id="b-name" name="name" autocomplete="name" required minlength="2" maxlength="100">
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <div class="field-row">
+            <div class="field">
+              <label for="b-phone">Cellphone number</label>
+              <input id="b-phone" name="phone" type="tel" autocomplete="tel" required minlength="9" maxlength="20">
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="b-email">Email <span class="opt">(optional)</span></label>
+              <input id="b-email" name="email" type="email" autocomplete="email" maxlength="200">
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            </div>
+            <div class="field-row">
+            <div class="field">
+              <label for="b-category">What do you need?</label>
+              <select id="b-category" name="category" required>
+                <option value="">Choose one</option>
+                <option value="phone">Phone repair</option>
+                <option value="computer">Laptop or PC repair</option>
+                <option value="software">Software install or update</option>
+                <option value="unlock">Phone or account unlock</option>
+                <option value="other">Something else</option>
+              </select>
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="b-device">Device make and model</label>
+              <input id="b-device" name="device" required minlength="2" maxlength="120" placeholder="e.g. HP 250 G8">
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            </div>
+            <div class="field">
+              <label for="b-problem">What’s wrong?</label>
+              <textarea id="b-problem" name="problem" rows="4" required minlength="5" maxlength="2000"></textarea>
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <label class="check" id="proof-row" hidden>
+              <input type="checkbox" name="hasProofOfOwnership">
+              <span>I’ll bring my ID and proof that the device is mine.</span>
+              <span class="field__error" aria-live="polite"></span>
+            </label>
+            <div class="hp" aria-hidden="true"><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label></div>
+            <label class="check">
+              <input type="checkbox" name="consent" required>
+              <span>I agree that Mmadi Development Solutions may store these details to handle my repair. See our <a href="/privacy/">privacy notice</a>.</span>
+              <span class="field__error" aria-live="polite"></span>
+            </label>
+            <button class="btn btn--primary" type="submit">Book repair</button>
+            <p class="form__status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="form-card" id="track">
+          <h2>Track a repair</h2>
+          <p>Use the job number we gave you and the phone number you booked with.</p>
+          <form id="track-form" class="form" novalidate>
+            <div class="field-row">
+            <div class="field">
+              <label for="t-job">Job number</label>
+              <input id="t-job" name="job" required placeholder="J-0012" maxlength="12" autocapitalize="characters">
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="t-phone">Phone number</label>
+              <input id="t-phone" name="phone" type="tel" required minlength="9" maxlength="20">
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            </div>
+            <button class="btn btn--primary" type="submit">Check status</button>
+            <p class="form__status" role="status" aria-live="polite"></p>
+          </form>
+          <div id="track-result" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__grid">
+      <div>
+        <img src="/assets/img/logo-tile-white.svg" alt="" width="36" height="36">
+        <p class="foot__name">Mmadi Development Solutions (Pty) Ltd</p>
+        <p>Registration no. 2026/580350/07</p>
+      </div>
+      <div>
+        <p class="foot__head">Visit us</p>
+        <address>Stand No 10321<br>Ga-Moretsele Village<br>Jane Furse, 1085</address>
+        <p class="foot__lines" data-contact-lines hidden></p>
+      </div>
+      <nav aria-label="Footer">
+        <p class="foot__head">Services</p>
+        <a href="/repairs/">Repairs and software</a>
+        <a href="/repairs/#track">Track a repair</a>
+        <a href="/cafe/">Internet café</a>
+        <a href="/learnerships/">Learnerships</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </div>
+    <div class="wrap foot__base">
+      <p>© <span data-year>2026</span> Mmadi Development Solutions (Pty) Ltd</p>
+      <a href="/privacy/">Privacy notice</a>
+    </div>
+  </footer>
+  <script type="module" src="/assets/js/site.js"></script>
+  <script type="module" src="/assets/js/pages/repairs.js"></script>
+</body>
+</html>

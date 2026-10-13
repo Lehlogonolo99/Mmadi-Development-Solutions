@@ -1,0 +1,18 @@
+{
+  "name": "@mmadi/cafe-service",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Internet caf\u00e9 hours, prices and bookings",
+  "type": "module",
+  "main": "index.js",
+  "engines": {
+    "node": "22"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "firebase-admin": "^13.4.0",
+    "firebase-functions": "^6.4.0"
+  }
+}

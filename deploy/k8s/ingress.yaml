@@ -1,0 +1,23 @@
+# Routes /api/<service> to each microservice and everything else to the website,
+# the same as the Firebase Hosting rewrites in firebase.json.
+# Assumes the ingress-nginx controller; set the host and TLS for your domain.
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mmadi
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 64k
+spec:
+  ingressClassName: nginx
+  # tls:
+  #   - hosts: [www.example.co.za]
+  #     secretName: mmadi-tls
+  rules:
+    - http:
+        paths:
+          - { path: /api/repairs, pathType: Prefix, backend: { service: { name: repairs, port: { name: http } } } }
+          - { path: /api/cafe, pathType: Prefix, backend: { service: { name: cafe, port: { name: http } } } }
+          - { path: /api/learnerships, pathType: Prefix, backend: { service: { name: learnerships, port: { name: http } } } }
+          - { path: /api/contact, pathType: Prefix, backend: { service: { name: contact, port: { name: http } } } }
+          - { path: /api/staff, pathType: Prefix, backend: { service: { name: staff, port: { name: http } } } }
+          - { path: /, pathType: Prefix, backend: { service: { name: web, port: { name: http } } } }

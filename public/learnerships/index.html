@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT learnerships funded by MICT SETA | Mmadi Development Solutions</title>
+  <meta name="description" content="Paid IT learnerships in Jane Furse funded through MICT SETA. Learners finish with a MICT SETA certificate and Microsoft and AWS foundation certifications. See open intakes and apply.">
+  <meta name="theme-color" content="#0F1B2D">
+  <link rel="canonical" href="https://mmadi-development-solutions.web.app/learnerships/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mmadi Development Solutions">
+  <meta property="og:title" content="IT learnerships funded by MICT SETA | Mmadi Development Solutions">
+  <meta property="og:description" content="Paid IT learnerships in Jane Furse funded through MICT SETA. Learners finish with a MICT SETA certificate and Microsoft and AWS foundation certifications. See open intakes and apply.">
+  <link rel="icon" href="/assets/img/logo-tile.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <div class="wrap top__inner">
+      <a class="brand" href="/" aria-label="Mmadi Development Solutions, home">
+        <img src="/assets/img/logo-tile.svg" alt="" width="40" height="40">
+        <span class="brand__text">
+          <span class="brand__name">Mmadi</span>
+          <span class="brand__tag">Development Solutions</span>
+        </span>
+      </a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="nav" aria-label="Main">
+        <a href="/repairs/">Repairs</a>
+        <a href="/cafe/">Internet café</a>
+        <a href="/learnerships/" aria-current="page">Learnerships</a>
+        <a href="/contact/">Contact</a>
+        <a class="nav__staff" href="/portal/">Staff sign in</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero page-hero--navy">
+      <div class="wrap">
+        <h1>IT learnerships</h1>
+        <p class="lede">A year of paid, hands-on IT work for young people, funded through MICT SETA. You finish with a MICT SETA certificate and industry certifications from Microsoft and AWS.</p>
+        <div class="hero__actions">
+          <a class="btn btn--amber" href="#apply">Apply now</a>
+          <a class="btn btn--ghost-light" href="#status">Check your application</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section__title">How it works</h2>
+        <ol class="path">
+          <li><h3>Apply</h3><p>Apply to an open intake, or to our general pool if none is open.</p></li>
+          <li><h3>Selection and funding</h3><p>We shortlist and interview candidates, then apply to MICT SETA for funding.</p></li>
+          <li><h3>Learn on the job</h3><p>Classroom modules plus real work in our repair shop and café, with a monthly stipend.</p></li>
+          <li><h3>Get certified</h3><p>Write foundation exams along the way and receive your MICT SETA certificate at the end.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--tint">
+      <div class="wrap split">
+        <div>
+          <h2>Certifications you work towards</h2>
+          <p class="muted">Each intake lists the exact qualifications it covers.</p>
+        </div>
+        <ul class="tick-list">
+          <li><strong>MICT SETA certificate</strong> for the accredited learnership qualification.</li>
+          <li><strong>Microsoft Azure Fundamentals (AZ-900)</strong> and Microsoft 365 Fundamentals.</li>
+          <li><strong>AWS Certified Cloud Practitioner</strong>, the entry certificate for Amazon Web Services.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="intakes">
+      <div class="wrap">
+        <h2 class="section__title">Intakes</h2>
+        <div id="intake-list" class="intakes" aria-live="polite"><p class="muted">Loading intakes…</p></div>
+        <p class="fineprint">Intakes depend on MICT SETA approving funding. Matric is the minimum requirement; each intake lists any others.</p>
+      </div>
+    </section>
+
+    <section class="section section--tint">
+      <div class="wrap forms">
+        <div class="form-card" id="apply">
+          <h2>Apply for a learnership</h2>
+          <p>You’ll get a reference number to check your application later.</p>
+          <form id="apply-form" class="form" novalidate>
+            <div class="field">
+              <label for="a-intake">Intake</label>
+              <select id="a-intake" name="intakeId"><option value="">General pool (contact me when an intake opens)</option></select>
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="a-name">Full name</label>
+              <input id="a-name" name="fullName" autocomplete="name" required minlength="2" maxlength="120">
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <div class="field-row">
+            <div class="field">
+              <label for="a-phone">Cellphone number</label>
+              <input id="a-phone" name="phone" type="tel" autocomplete="tel" required minlength="9" maxlength="20">
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="a-email">Email</label>
+              <input id="a-email" name="email" type="email" autocomplete="email" required maxlength="200">
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            </div>
+            <div class="field-row">
+            <div class="field">
+              <label for="a-town">Town or village</label>
+              <input id="a-town" name="town" required minlength="2" maxlength="100">
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="a-qual">Highest qualification</label>
+              <select id="a-qual" name="qualification" required>
+                <option value="">Choose one</option>
+                <option value="matric">Matric (Grade 12)</option>
+                <option value="higher_certificate">Higher certificate</option>
+                <option value="diploma">Diploma</option>
+                <option value="degree">Degree</option>
+                <option value="other">Other</option>
+              </select>
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            </div>
+            <div class="field-row">
+            <div class="field">
+              <label for="a-track">Area you’re most interested in</label>
+              <select id="a-track" name="track" required>
+                <option value="">Choose one</option>
+                <option value="end_user_support">IT support and repairs</option>
+                <option value="microsoft">Microsoft 365 and Azure</option>
+                <option value="aws">Cloud with AWS</option>
+                <option value="unsure">Not sure yet</option>
+              </select>
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="a-employed">Are you currently employed?</label>
+              <select id="a-employed" name="employed" data-type="bool" required>
+                <option value="">Choose one</option>
+                <option value="false">No</option>
+                <option value="true">Yes</option>
+              </select>
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            </div>
+            <div class="field">
+              <label for="a-motivation">Why do you want to work in IT?</label>
+              <p class="field__hint">A few sentences is enough. At least 20 characters.</p>
+              <textarea id="a-motivation" name="motivation" rows="5" required minlength="20" maxlength="3000"></textarea>
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <div class="hp" aria-hidden="true"><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label></div>
+            <label class="check">
+              <input type="checkbox" name="consent" required>
+              <span>I agree that Mmadi Development Solutions may store these details to assess my application and contact me about intakes. See our <a href="/privacy/">privacy notice</a>.</span>
+              <span class="field__error" aria-live="polite"></span>
+            </label>
+            <button class="btn btn--primary" type="submit">Submit application</button>
+            <p class="form__status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="form-card" id="status">
+          <h2>Check your application</h2>
+          <p>Use the reference we gave you and the email you applied with.</p>
+          <form id="status-form" class="form" novalidate>
+            <div class="field">
+              <label for="s-ref">Reference</label>
+              <input id="s-ref" name="ref" required placeholder="L-0012" maxlength="12" autocapitalize="characters">
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="s-email">Email</label>
+              <input id="s-email" name="email" type="email" required maxlength="200">
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <button class="btn btn--primary" type="submit">Check status</button>
+            <p class="form__status" role="status" aria-live="polite"></p>
+          </form>
+          <div id="status-result" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__grid">
+      <div>
+        <img src="/assets/img/logo-tile-white.svg" alt="" width="36" height="36">
+        <p class="foot__name">Mmadi Development Solutions (Pty) Ltd</p>
+        <p>Registration no. 2026/580350/07</p>
+      </div>
+      <div>
+        <p class="foot__head">Visit us</p>
+        <address>Stand No 10321<br>Ga-Moretsele Village<br>Jane Furse, 1085</address>
+        <p class="foot__lines" data-contact-lines hidden></p>
+      </div>
+      <nav aria-label="Footer">
+        <p class="foot__head">Services</p>
+        <a href="/repairs/">Repairs and software</a>
+        <a href="/repairs/#track">Track a repair</a>
+        <a href="/cafe/">Internet café</a>
+        <a href="/learnerships/">Learnerships</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </div>
+    <div class="wrap foot__base">
+      <p>© <span data-year>2026</span> Mmadi Development Solutions (Pty) Ltd</p>
+      <a href="/privacy/">Privacy notice</a>
+    </div>
+  </footer>
+  <script type="module" src="/assets/js/site.js"></script>
+  <script type="module" src="/assets/js/pages/learnerships.js"></script>
+</body>
+</html>

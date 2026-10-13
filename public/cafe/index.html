@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Internet café in Ga-Moretsele | Mmadi Development Solutions</title>
+  <meta name="description" content="Computers and internet, printing, scanning, copying, CV typing and help with online applications in Ga-Moretsele, Jane Furse. See hours and prices, and book a computer.">
+  <meta name="theme-color" content="#0F1B2D">
+  <link rel="canonical" href="https://mmadi-development-solutions.web.app/cafe/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mmadi Development Solutions">
+  <meta property="og:title" content="Internet café in Ga-Moretsele | Mmadi Development Solutions">
+  <meta property="og:description" content="Computers and internet, printing, scanning, copying, CV typing and help with online applications in Ga-Moretsele, Jane Furse. See hours and prices, and book a computer.">
+  <link rel="icon" href="/assets/img/logo-tile.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <div class="wrap top__inner">
+      <a class="brand" href="/" aria-label="Mmadi Development Solutions, home">
+        <img src="/assets/img/logo-tile.svg" alt="" width="40" height="40">
+        <span class="brand__text">
+          <span class="brand__name">Mmadi</span>
+          <span class="brand__tag">Development Solutions</span>
+        </span>
+      </a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="nav" aria-label="Main">
+        <a href="/repairs/">Repairs</a>
+        <a href="/cafe/" aria-current="page">Internet café</a>
+        <a href="/learnerships/">Learnerships</a>
+        <a href="/contact/">Contact</a>
+        <a class="nav__staff" href="/portal/">Staff sign in</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="wrap page-hero__split">
+        <div>
+          <h1>Internet café</h1>
+          <p class="lede">Fast internet and a desk to work at, with someone nearby who can help when a form or upload gets stuck.</p>
+          <div class="hero__actions"><a class="btn btn--primary" href="#book">Book a computer</a></div>
+        </div>
+        <div class="hours-card" id="hours" aria-live="polite">
+          <p class="muted">Loading opening hours…</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap split">
+        <div>
+          <h2>What you can do here</h2>
+          <p class="muted">Walk in any time we’re open. Book ahead if you need a computer at a set time, like for an online test or a deadline.</p>
+        </div>
+        <ul class="tick-list">
+          <li><strong>Computer and internet use</strong> for browsing, email, studying and video calls.</li>
+          <li><strong>Printing, scanning and copying</strong>, including documents sent to us by email or WhatsApp.</li>
+          <li><strong>CV typing and formatting</strong>, printed or sent to you as a PDF.</li>
+          <li><strong>Help with online applications</strong> for jobs, bursaries, university and government services.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--tint">
+      <div class="wrap">
+        <h2 class="section__title">Prices</h2>
+        <div id="prices" class="price-list" aria-live="polite"><p class="muted">Loading prices…</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap forms">
+        <div class="form-card" id="book">
+          <h2>Book a computer or service</h2>
+          <p>We’ll confirm your booking by phone or SMS.</p>
+          <form id="cafe-form" class="form" novalidate>
+            <div class="field">
+              <label for="c-name">Your name</label>
+              <input id="c-name" name="name" autocomplete="name" required minlength="2" maxlength="100">
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <div class="field-row">
+            <div class="field">
+              <label for="c-phone">Cellphone number</label>
+              <input id="c-phone" name="phone" type="tel" autocomplete="tel" required minlength="9" maxlength="20">
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="c-email">Email <span class="opt">(optional)</span></label>
+              <input id="c-email" name="email" type="email" autocomplete="email" maxlength="200">
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            </div>
+            <div class="field">
+              <label for="c-service">What do you need?</label>
+              <select id="c-service" name="service" required>
+                <option value="computer">Computer and internet use</option>
+                <option value="printing">Printing, scanning or copying</option>
+                <option value="cv">CV typing and formatting</option>
+                <option value="online_application">Help with an online application</option>
+              </select>
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <div class="field-row field-row--3">
+            <div class="field">
+              <label for="c-date">Date</label>
+              <input id="c-date" name="date" type="date" required>
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="c-time">Time</label>
+              <input id="c-time" name="time" type="time" required step="900">
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="c-duration">How long</label>
+              <select id="c-duration" name="duration" data-type="number">
+                <option value="30">30 minutes</option>
+                <option value="60" selected>1 hour</option>
+                <option value="90">1½ hours</option>
+                <option value="120">2 hours</option>
+              </select>
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            </div>
+            <div class="field">
+              <label for="c-notes">Anything we should know? <span class="opt">(optional)</span></label>
+              <textarea id="c-notes" name="notes" rows="3" maxlength="1000" placeholder="e.g. I need to upload documents for a NSFAS application"></textarea>
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <div class="hp" aria-hidden="true"><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label></div>
+            <label class="check">
+              <input type="checkbox" name="consent" required>
+              <span>I agree that Mmadi Development Solutions may store these details to manage my booking. See our <a href="/privacy/">privacy notice</a>.</span>
+              <span class="field__error" aria-live="polite"></span>
+            </label>
+            <button class="btn btn--primary" type="submit">Request booking</button>
+            <p class="form__status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="form-card" id="check">
+          <h2>Check a booking</h2>
+          <p>Use your booking reference and the phone number you booked with.</p>
+          <form id="cafe-check-form" class="form" novalidate>
+            <div class="field-row">
+            <div class="field">
+              <label for="k-ref">Booking reference</label>
+              <input id="k-ref" name="ref" required placeholder="C-0012" maxlength="12" autocapitalize="characters">
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="k-phone">Phone number</label>
+              <input id="k-phone" name="phone" type="tel" required minlength="9" maxlength="20">
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            </div>
+            <button class="btn btn--primary" type="submit">Check booking</button>
+            <p class="form__status" role="status" aria-live="polite"></p>
+          </form>
+          <div id="cafe-check-result" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__grid">
+      <div>
+        <img src="/assets/img/logo-tile-white.svg" alt="" width="36" height="36">
+        <p class="foot__name">Mmadi Development Solutions (Pty) Ltd</p>
+        <p>Registration no. 2026/580350/07</p>
+      </div>
+      <div>
+        <p class="foot__head">Visit us</p>
+        <address>Stand No 10321<br>Ga-Moretsele Village<br>Jane Furse, 1085</address>
+        <p class="foot__lines" data-contact-lines hidden></p>
+      </div>
+      <nav aria-label="Footer">
+        <p class="foot__head">Services</p>
+        <a href="/repairs/">Repairs and software</a>
+        <a href="/repairs/#track">Track a repair</a>
+        <a href="/cafe/">Internet café</a>
+        <a href="/learnerships/">Learnerships</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </div>
+    <div class="wrap foot__base">
+      <p>© <span data-year>2026</span> Mmadi Development Solutions (Pty) Ltd</p>
+      <a href="/privacy/">Privacy notice</a>
+    </div>
+  </footer>
+  <script type="module" src="/assets/js/site.js"></script>
+  <script type="module" src="/assets/js/pages/cafe.js"></script>
+</body>
+</html>

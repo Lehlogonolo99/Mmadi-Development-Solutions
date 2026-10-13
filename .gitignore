@@ -1,0 +1,8 @@
+node_modules/
+.firebase/
+*-debug.log
+*.log
+.DS_Store
+service-account*.json
+deploy/secrets/
+deploy/firebase-web-config.json

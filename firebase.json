@@ -1,0 +1,201 @@
+{
+  "hosting": {
+    "public": "public",
+    "cleanUrls": true,
+    "trailingSlash": true,
+    "ignore": [
+      "firebase.json",
+      "**/.*"
+    ],
+    "rewrites": [
+      {
+        "source": "/api/repairs/**",
+        "function": {
+          "functionId": "repairs",
+          "region": "africa-south1"
+        }
+      },
+      {
+        "source": "/api/cafe/**",
+        "function": {
+          "functionId": "cafe",
+          "region": "africa-south1"
+        }
+      },
+      {
+        "source": "/api/learnerships/**",
+        "function": {
+          "functionId": "learnerships",
+          "region": "africa-south1"
+        }
+      },
+      {
+        "source": "/api/contact/**",
+        "function": {
+          "functionId": "contact",
+          "region": "africa-south1"
+        }
+      },
+      {
+        "source": "/api/staff/**",
+        "function": {
+          "functionId": "staff",
+          "region": "africa-south1"
+        }
+      }
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          },
+          {
+            "key": "X-Frame-Options",
+            "value": "DENY"
+          },
+          {
+            "key": "Referrer-Policy",
+            "value": "strict-origin-when-cross-origin"
+          },
+          {
+            "key": "Permissions-Policy",
+            "value": "camera=(), microphone=(), geolocation=()"
+          },
+          {
+            "key": "Strict-Transport-Security",
+            "value": "max-age=31536000; includeSubDomains"
+          }
+        ]
+      },
+      {
+        "source": "/assets/**/*.@(js|css)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=300"
+          }
+        ]
+      },
+      {
+        "source": "/assets/img/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=86400"
+          }
+        ]
+      },
+      {
+        "source": "/portal/**",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex"
+          }
+        ]
+      }
+    ]
+  },
+  "functions": [
+    {
+      "source": "services/repairs",
+      "codebase": "repairs",
+      "runtime": "nodejs22",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "Dockerfile",
+        ".dockerignore",
+        "*.log"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" install --omit=dev --no-audit --no-fund"
+      ]
+    },
+    {
+      "source": "services/cafe",
+      "codebase": "cafe",
+      "runtime": "nodejs22",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "Dockerfile",
+        ".dockerignore",
+        "*.log"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" install --omit=dev --no-audit --no-fund"
+      ]
+    },
+    {
+      "source": "services/learnerships",
+      "codebase": "learnerships",
+      "runtime": "nodejs22",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "Dockerfile",
+        ".dockerignore",
+        "*.log"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" install --omit=dev --no-audit --no-fund"
+      ]
+    },
+    {
+      "source": "services/contact",
+      "codebase": "contact",
+      "runtime": "nodejs22",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "Dockerfile",
+        ".dockerignore",
+        "*.log"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" install --omit=dev --no-audit --no-fund"
+      ]
+    },
+    {
+      "source": "services/staff",
+      "codebase": "staff",
+      "runtime": "nodejs22",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "Dockerfile",
+        ".dockerignore",
+        "*.log"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" install --omit=dev --no-audit --no-fund"
+      ]
+    }
+  ],
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "emulators": {
+    "hosting": {
+      "port": 5000
+    },
+    "functions": {
+      "port": 5001
+    },
+    "firestore": {
+      "port": 8085
+    },
+    "auth": {
+      "port": 9099
+    },
+    "ui": {
+      "enabled": true,
+      "port": 4000
+    }
+  }
+}

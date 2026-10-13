@@ -1,0 +1,42 @@
+# Static website and staff portal (nginx)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  labels: { app.kubernetes.io/name: web, app.kubernetes.io/part-of: mmadi }
+spec:
+  replicas: 2
+  selector:
+    matchLabels: { app.kubernetes.io/name: web }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: web, app.kubernetes.io/part-of: mmadi }
+    spec:
+      securityContext: { runAsNonRoot: true, runAsUser: 101, runAsGroup: 101 }
+      containers:
+        - name: web
+          image: mmadi/web
+          ports: [{ containerPort: 8080, name: http }]
+          volumeMounts:
+            - name: firebase-web-config
+              mountPath: /usr/share/nginx/html/__/firebase/init.json
+              subPath: init.json
+              readOnly: true
+          readinessProbe: { httpGet: { path: /healthz, port: http }, periodSeconds: 10 }
+          livenessProbe: { httpGet: { path: /healthz, port: http }, periodSeconds: 20 }
+          resources:
+            requests: { cpu: 20m, memory: 32Mi }
+            limits: { memory: 128Mi }
+          securityContext: { allowPrivilegeEscalation: false, capabilities: { drop: [ALL] } }
+      volumes:
+        - name: firebase-web-config
+          configMap: { name: firebase-web-config }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+  labels: { app.kubernetes.io/name: web, app.kubernetes.io/part-of: mmadi }
+spec:
+  selector: { app.kubernetes.io/name: web }
+  ports: [{ port: 8080, targetPort: http, name: http }]

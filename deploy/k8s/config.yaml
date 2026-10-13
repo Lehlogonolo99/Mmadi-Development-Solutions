@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: staff-config
+data:
+  OWNER_EMAIL: 216812190hlogi@gmail.com
+  PORTAL_URL: https://mmadi-development-solutions.web.app/portal/
+---
+# Firebase web app config for the staff portal sign-in (public values, not secrets).
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: firebase-web-config
+data:
+  init.json: |
+    {
+      "apiKey": "REPLACE_ME",
+      "authDomain": "mmadi-development-solutions.firebaseapp.com",
+      "projectId": "mmadi-development-solutions",
+      "appId": "REPLACE_ME"
+    }
+# The service-account key is a real secret, so it is NOT stored in git. Create it with:
+#   kubectl -n mmadi create secret generic firebase-service-account \
+#     --from-file=service-account.json=./service-account.json

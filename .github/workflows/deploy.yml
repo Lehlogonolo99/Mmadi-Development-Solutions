@@ -1,0 +1,80 @@
+name: Test and deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Shared code is in sync, and service tests pass
+        run: npm test
+
+  firebase:
+    name: Deploy to Firebase
+    needs: test
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    env:
+      SA_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check the deploy secret exists
+        run: |
+          if [ -z "$SA_JSON" ]; then
+            echo "::error::Add a FIREBASE_SERVICE_ACCOUNT repository secret (see README > Automatic deploys)."
+            exit 1
+          fi
+      - name: Deploy hosting, Firestore rules and the five services
+        run: |
+          printf '%s' "$SA_JSON" > "$RUNNER_TEMP/sa.json"
+          export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/sa.json"
+          npx --yes firebase-tools@latest deploy --project mmadi-development-solutions --non-interactive --force
+
+  images:
+    name: Build container images
+    needs: test
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      matrix:
+        include:
+          - { name: repairs, context: services/repairs, file: services/repairs/Dockerfile }
+          - { name: cafe, context: services/cafe, file: services/cafe/Dockerfile }
+          - { name: learnerships, context: services/learnerships, file: services/learnerships/Dockerfile }
+          - { name: contact, context: services/contact, file: services/contact/Dockerfile }
+          - { name: staff, context: services/staff, file: services/staff/Dockerfile }
+          - { name: web, context: ., file: deploy/web/Dockerfile }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v6
+        with:
+          context: ${{ matrix.context }}
+          file: ${{ matrix.file }}
+          push: true
+          tags: |
+            ghcr.io/lehlogonolo99/mmadi-${{ matrix.name }}:latest
+            ghcr.io/lehlogonolo99/mmadi-${{ matrix.name }}:${{ github.sha }}

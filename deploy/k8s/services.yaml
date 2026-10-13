@@ -1,0 +1,258 @@
+# repairs microservice
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: repairs
+  labels: { app.kubernetes.io/name: repairs, app.kubernetes.io/part-of: mmadi }
+spec:
+  replicas: 2
+  selector:
+    matchLabels: { app.kubernetes.io/name: repairs }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: repairs, app.kubernetes.io/part-of: mmadi }
+    spec:
+      securityContext: { runAsNonRoot: true, runAsUser: 1000, runAsGroup: 1000 }
+      containers:
+        - name: repairs
+          image: mmadi/repairs-service
+          ports: [{ containerPort: 8080, name: http }]
+          env:
+            - name: PORT
+              value: "8080"
+            - name: GOOGLE_CLOUD_PROJECT
+              value: mmadi-development-solutions
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /secrets/service-account.json
+          volumeMounts:
+            - { name: firebase-credentials, mountPath: /secrets, readOnly: true }
+          readinessProbe:
+            httpGet: { path: /healthz, port: http }
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: { path: /healthz, port: http }
+            periodSeconds: 20
+          resources:
+            requests: { cpu: 50m, memory: 96Mi }
+            limits: { memory: 256Mi }
+          securityContext: { allowPrivilegeEscalation: false, readOnlyRootFilesystem: true, capabilities: { drop: [ALL] } }
+      volumes:
+        - name: firebase-credentials
+          secret: { secretName: firebase-service-account }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: repairs
+  labels: { app.kubernetes.io/name: repairs, app.kubernetes.io/part-of: mmadi }
+spec:
+  selector: { app.kubernetes.io/name: repairs }
+  ports: [{ port: 8080, targetPort: http, name: http }]
+---
+# cafe microservice
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cafe
+  labels: { app.kubernetes.io/name: cafe, app.kubernetes.io/part-of: mmadi }
+spec:
+  replicas: 2
+  selector:
+    matchLabels: { app.kubernetes.io/name: cafe }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: cafe, app.kubernetes.io/part-of: mmadi }
+    spec:
+      securityContext: { runAsNonRoot: true, runAsUser: 1000, runAsGroup: 1000 }
+      containers:
+        - name: cafe
+          image: mmadi/cafe-service
+          ports: [{ containerPort: 8080, name: http }]
+          env:
+            - name: PORT
+              value: "8080"
+            - name: GOOGLE_CLOUD_PROJECT
+              value: mmadi-development-solutions
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /secrets/service-account.json
+          volumeMounts:
+            - { name: firebase-credentials, mountPath: /secrets, readOnly: true }
+          readinessProbe:
+            httpGet: { path: /healthz, port: http }
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: { path: /healthz, port: http }
+            periodSeconds: 20
+          resources:
+            requests: { cpu: 50m, memory: 96Mi }
+            limits: { memory: 256Mi }
+          securityContext: { allowPrivilegeEscalation: false, readOnlyRootFilesystem: true, capabilities: { drop: [ALL] } }
+      volumes:
+        - name: firebase-credentials
+          secret: { secretName: firebase-service-account }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cafe
+  labels: { app.kubernetes.io/name: cafe, app.kubernetes.io/part-of: mmadi }
+spec:
+  selector: { app.kubernetes.io/name: cafe }
+  ports: [{ port: 8080, targetPort: http, name: http }]
+---
+# learnerships microservice
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: learnerships
+  labels: { app.kubernetes.io/name: learnerships, app.kubernetes.io/part-of: mmadi }
+spec:
+  replicas: 2
+  selector:
+    matchLabels: { app.kubernetes.io/name: learnerships }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: learnerships, app.kubernetes.io/part-of: mmadi }
+    spec:
+      securityContext: { runAsNonRoot: true, runAsUser: 1000, runAsGroup: 1000 }
+      containers:
+        - name: learnerships
+          image: mmadi/learnerships-service
+          ports: [{ containerPort: 8080, name: http }]
+          env:
+            - name: PORT
+              value: "8080"
+            - name: GOOGLE_CLOUD_PROJECT
+              value: mmadi-development-solutions
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /secrets/service-account.json
+          volumeMounts:
+            - { name: firebase-credentials, mountPath: /secrets, readOnly: true }
+          readinessProbe:
+            httpGet: { path: /healthz, port: http }
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: { path: /healthz, port: http }
+            periodSeconds: 20
+          resources:
+            requests: { cpu: 50m, memory: 96Mi }
+            limits: { memory: 256Mi }
+          securityContext: { allowPrivilegeEscalation: false, readOnlyRootFilesystem: true, capabilities: { drop: [ALL] } }
+      volumes:
+        - name: firebase-credentials
+          secret: { secretName: firebase-service-account }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: learnerships
+  labels: { app.kubernetes.io/name: learnerships, app.kubernetes.io/part-of: mmadi }
+spec:
+  selector: { app.kubernetes.io/name: learnerships }
+  ports: [{ port: 8080, targetPort: http, name: http }]
+---
+# contact microservice
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contact
+  labels: { app.kubernetes.io/name: contact, app.kubernetes.io/part-of: mmadi }
+spec:
+  replicas: 2
+  selector:
+    matchLabels: { app.kubernetes.io/name: contact }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: contact, app.kubernetes.io/part-of: mmadi }
+    spec:
+      securityContext: { runAsNonRoot: true, runAsUser: 1000, runAsGroup: 1000 }
+      containers:
+        - name: contact
+          image: mmadi/contact-service
+          ports: [{ containerPort: 8080, name: http }]
+          env:
+            - name: PORT
+              value: "8080"
+            - name: GOOGLE_CLOUD_PROJECT
+              value: mmadi-development-solutions
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /secrets/service-account.json
+          volumeMounts:
+            - { name: firebase-credentials, mountPath: /secrets, readOnly: true }
+          readinessProbe:
+            httpGet: { path: /healthz, port: http }
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: { path: /healthz, port: http }
+            periodSeconds: 20
+          resources:
+            requests: { cpu: 50m, memory: 96Mi }
+            limits: { memory: 256Mi }
+          securityContext: { allowPrivilegeEscalation: false, readOnlyRootFilesystem: true, capabilities: { drop: [ALL] } }
+      volumes:
+        - name: firebase-credentials
+          secret: { secretName: firebase-service-account }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: contact
+  labels: { app.kubernetes.io/name: contact, app.kubernetes.io/part-of: mmadi }
+spec:
+  selector: { app.kubernetes.io/name: contact }
+  ports: [{ port: 8080, targetPort: http, name: http }]
+---
+# staff microservice
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: staff
+  labels: { app.kubernetes.io/name: staff, app.kubernetes.io/part-of: mmadi }
+spec:
+  replicas: 2
+  selector:
+    matchLabels: { app.kubernetes.io/name: staff }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: staff, app.kubernetes.io/part-of: mmadi }
+    spec:
+      securityContext: { runAsNonRoot: true, runAsUser: 1000, runAsGroup: 1000 }
+      containers:
+        - name: staff
+          image: mmadi/staff-service
+          ports: [{ containerPort: 8080, name: http }]
+          env:
+            - name: PORT
+              value: "8080"
+            - name: GOOGLE_CLOUD_PROJECT
+              value: mmadi-development-solutions
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /secrets/service-account.json
+            - name: OWNER_EMAIL
+              valueFrom: { configMapKeyRef: { name: staff-config, key: OWNER_EMAIL } }
+            - name: PORTAL_URL
+              valueFrom: { configMapKeyRef: { name: staff-config, key: PORTAL_URL } }
+          volumeMounts:
+            - { name: firebase-credentials, mountPath: /secrets, readOnly: true }
+          readinessProbe:
+            httpGet: { path: /healthz, port: http }
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: { path: /healthz, port: http }
+            periodSeconds: 20
+          resources:
+            requests: { cpu: 50m, memory: 96Mi }
+            limits: { memory: 256Mi }
+          securityContext: { allowPrivilegeEscalation: false, readOnlyRootFilesystem: true, capabilities: { drop: [ALL] } }
+      volumes:
+        - name: firebase-credentials
+          secret: { secretName: firebase-service-account }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: staff
+  labels: { app.kubernetes.io/name: staff, app.kubernetes.io/part-of: mmadi }
+spec:
+  selector: { app.kubernetes.io/name: staff }
+  ports: [{ port: 8080, targetPort: http, name: http }]
